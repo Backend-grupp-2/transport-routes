@@ -14,8 +14,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/route")
 public class RouteController {
-
+    
     RouteService routeService = new RouteService();
+    
     @GetMapping("/{start}/{end}")
     public ResponseEntity<List<Route>> getRoute(@PathVariable String start, @PathVariable String end){
         List<Route> routes = routeService.getRoute(start, end);
@@ -25,5 +26,10 @@ public class RouteController {
         } else {
             return ResponseEntity.status(200).body(routes);
         }
+    }
+        @GetMapping("/test")
+    public ResponseEntity<?> getRouteAll(){
+        List<Route> routes = routeService.getRouteAll();
+        return new ResponseEntity<>(routes, HttpStatus.OK);
     }
 }
