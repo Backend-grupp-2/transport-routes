@@ -15,4 +15,9 @@ public class RouteService {
         List<Route> routes = routeRepository.findRoutesByStartAndEnd(start, end);
         return routes;
     }
+
+    public List<Route> getRouteAll() {
+        List<Route> routes = routeRepository.findAll();
+        return routes;
+    }
 }
