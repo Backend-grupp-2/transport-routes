@@ -22,4 +22,9 @@ public class Route {
     int time;
     //String weather;
 
+    public Route(String start, String end, int time){
+        this.start = start;
+        this.end = end;
+        this.time = time;
+    }
 }
