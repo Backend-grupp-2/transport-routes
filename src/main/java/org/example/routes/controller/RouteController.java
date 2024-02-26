@@ -17,8 +17,13 @@ public class RouteController {
 
     RouteService routeService = new RouteService();
     @GetMapping("/{start}/{end}")
-    public ResponseEntity<?> getRoute(@PathVariable String start, @PathVariable String end){
+    public ResponseEntity<List<Route>> getRoute(@PathVariable String start, @PathVariable String end){
         List<Route> routes = routeService.getRoute(start, end);
-        return new ResponseEntity<>(routes, HttpStatus.OK);
+        
+        if (routes.isEmpty()){
+            return ResponseEntity.status(204).body(routes);
+        } else {
+            return ResponseEntity.status(200).body(routes);
+        }
     }
 }
