@@ -1,6 +1,7 @@
 package org.example.routes.controller;
 
 import org.example.routes.model.Route;
+import org.example.routes.model.RouteObj;
 import org.example.routes.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,9 +20,11 @@ public class RouteController {
     @Autowired
     RouteService routeService;
     @GetMapping("/{start}/{end}")
-    public ResponseEntity<?> getRoute(@PathVariable String start, @PathVariable String end){
+    public RouteObj getRoute(@PathVariable String start, @PathVariable String end){
         List<Route> routes = routeService.getRoute(start, end);
-        return new ResponseEntity<>(routes, HttpStatus.OK);
+        RouteObj obj = new RouteObj();
+        obj.setRoutes(routes);
+        return obj;
     }
 
     /*@GetMapping("/test")

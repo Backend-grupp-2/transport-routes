@@ -10,5 +10,9 @@ import java.util.List;
 public interface RouteRepository extends JpaRepository<Route, Long> {
 
     List<Route> findRoutesByStartAndEnd(String start, String end);
+    //List<Route> findRoutesByStartAndEndAndOrderByTime(String start, String end);
+
+    //find all conecting routes
+    //List<Route> findRoutesByStartOrEnd(String start, String end);
 
 }
