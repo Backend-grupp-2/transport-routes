@@ -27,4 +27,5 @@ public class Route {
         this.end = end;
         this.time = time;
     }
+
 }
