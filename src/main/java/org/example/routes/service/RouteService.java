@@ -31,6 +31,6 @@ public class RouteService {
     }
 
     public Route getRouteById(Long id){
-        return routeRepository.findRoutesById(id);
+        return routeRepository.findRouteById(id);
     }
 }
