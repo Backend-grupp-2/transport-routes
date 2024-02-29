@@ -27,9 +27,37 @@ public class RouteController {
         return obj;
     }
 
-    /*@GetMapping("/test")
-    public ResponseEntity<?> getRouteAll(){
+    @GetMapping("/all")
+    public RouteObj getRouteAll(){
         List<Route> routes = routeService.getRouteAll();
-        return new ResponseEntity<>(routes, HttpStatus.OK);
-    }*/
+        RouteObj obj = new RouteObj();
+        obj.setRoutes(routes);
+
+        return obj;
+    }
+    @GetMapping("/{end}")
+    public RouteObj getEndStation(@PathVariable String end){
+        List<Route> routes = routeService.getAllEndStations(end);
+        RouteObj obj = new RouteObj();
+        obj.setRoutes(routes);
+
+        return obj;
+    }
+
+    @GetMapping("/{start}")
+    public RouteObj getStartStation(@PathVariable String start){
+        List<Route> routes = routeService.getAllStartStations(start);
+        RouteObj obj = new RouteObj();
+        obj.setRoutes(routes);
+
+        return obj;
+    }
+
+    @GetMapping("/{id}")
+    public Route getId(@PathVariable Long id){
+        Route route = routeService.getRouteById(id);
+
+        return route;
+    }
+
 }

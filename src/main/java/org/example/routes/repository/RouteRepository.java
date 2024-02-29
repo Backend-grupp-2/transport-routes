@@ -13,6 +13,8 @@ public interface RouteRepository extends JpaRepository<Route, Long> {
     //List<Route> findRoutesByStartAndEndAndOrderByTime(String start, String end);
 
     //find all conecting routes
-    //List<Route> findRoutesByStartOrEnd(String start, String end);
+    List<Route> findRoutesByStart(String start);
+    List<Route> findRoutesByEnd(String end);
+
 
 }

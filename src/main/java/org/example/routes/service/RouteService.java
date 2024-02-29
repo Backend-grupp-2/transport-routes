@@ -17,8 +17,20 @@ public class RouteService {
         return routes;
     }
 
-    /*public List<Route> getRouteAll() {
+    public List<Route> getRouteAll() {
         List<Route> routes = routeRepository.findAll();
         return routes;
-    }*/
+    }
+
+    public List<Route> getAllEndStations(String end){
+        return routeRepository.findRoutesByEnd(end);
+    }
+
+    public List<Route> getAllStartStations(String start){
+        return routeRepository.findRoutesByStart(start);
+    }
+
+    public Route getRouteById(Long id){
+        return routeRepository.getById(id);
+    }
 }
