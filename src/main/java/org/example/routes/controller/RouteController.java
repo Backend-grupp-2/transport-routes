@@ -35,7 +35,7 @@ public class RouteController {
 
         return obj;
     }
-    @GetMapping("/station/{end}")
+    @GetMapping("/end/{end}")
     public RouteObj getEndStation(@PathVariable String end){
         List<Route> routes = routeService.getAllEndStations(end);
         RouteObj obj = new RouteObj();
@@ -44,7 +44,7 @@ public class RouteController {
         return obj;
     }
 
-    @GetMapping("/station/{start}")
+    @GetMapping("/start/{start}")
     public RouteObj getStartStation(@PathVariable String start){
         List<Route> routes = routeService.getAllStartStations(start);
         RouteObj obj = new RouteObj();
