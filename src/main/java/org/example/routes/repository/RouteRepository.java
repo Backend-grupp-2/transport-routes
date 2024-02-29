@@ -15,6 +15,7 @@ public interface RouteRepository extends JpaRepository<Route, Long> {
     //find all conecting routes
     List<Route> findRoutesByStart(String start);
     List<Route> findRoutesByEnd(String end);
+    Route findRoutesById(long id);
 
 
 }
